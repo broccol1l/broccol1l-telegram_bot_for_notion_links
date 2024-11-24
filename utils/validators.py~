@@ -6,11 +6,9 @@ async def is_valid_url(url: str) -> bool:
     """
     Validate if the input string is a valid URL.
     """
-    pattern = (
-        r'^(https?|ftp):\/\/'              # схема (http, https, ftp)
-        r'((?:[\w-]+\.)+[\w-]{2,})'       # домен и TLD
-        r'(\/[^\s]*)?$'                   # путь (необязательный)
-    )
+    pattern = r'^(https?|ftp):\/\/' \
+              r'((?:[\w-]+\.)+[\w-]{2,})' \   # домен и TLD
+              r'(\/[^\s]*)?'                  # путь, необязательный
     return re.match(pattern, url) is not None
 
 
